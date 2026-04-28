@@ -1,0 +1,1929 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Website Project Proposal — ABA Therapy Organization</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap');
+
+  :root {
+    --teal-deep:   #1A6B72;
+    --teal-mid:    #2B9E88;
+    --teal-light:  #E8F5F3;
+    --teal-pale:   #F0FAF8;
+    --amber:       #F4A261;
+    --amber-soft:  #FDE8D3;
+    --dark:        #1C2B2A;
+    --slate:       #4A6B69;
+    --muted:       #8EAEAC;
+    --white:       #FFFFFF;
+    --cream:       #FEFCF9;
+    --border:      #D4E8E6;
+    --page-w:      794px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e8eded;
+    color: var(--dark);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  /* ─── PAGE SHELL ─── */
+  .page {
+    width: var(--page-w);
+    margin: 32px auto;
+    background: var(--white);
+    box-shadow: 0 4px 40px rgba(26,107,114,.12);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* ─── COVER ─── */
+  .cover {
+    background: var(--teal-deep);
+    min-height: 520px;
+    padding: 64px 56px 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .cover-blob {
+    position: absolute;
+    border-radius: 50%;
+    background: var(--teal-mid);
+  }
+  .cover-blob.b1 { width: 340px; height: 340px; top: -90px; right: -80px; opacity: .4; }
+  .cover-blob.b2 { width: 180px; height: 180px; top: 40px; right: 100px; opacity: .25; background: var(--amber); }
+  .cover-blob.b3 { width: 280px; height: 280px; bottom: -100px; left: -60px; opacity: .2; }
+
+  .cover-tag {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--dark);
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    padding: 5px 14px;
+    margin-bottom: 32px;
+  }
+  .cover h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    line-height: 1.1;
+    color: var(--white);
+    max-width: 480px;
+    margin-bottom: 12px;
+  }
+  .cover h1 em {
+    font-style: italic;
+    color: var(--amber);
+  }
+  .cover-sub {
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 48px;
+  }
+  .cover-chips {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .chip {
+    border: 1px solid rgba(255,255,255,.25);
+    color: rgba(255,255,255,.75);
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+  }
+
+  .cover-foot {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(0,0,0,.18);
+    padding: 14px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: var(--muted);
+  }
+  .cover-foot strong { color: var(--white); }
+
+  /* ─── TABLE OF CONTENTS ─── */
+  .toc {
+    padding: 52px 56px;
+    background: var(--teal-pale);
+    border-bottom: 2px solid var(--border);
+  }
+  .toc h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    color: var(--teal-deep);
+    margin-bottom: 24px;
+  }
+  .toc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .toc-item {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .toc-num {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--amber);
+    min-width: 22px;
+  }
+  .toc-label { font-size: 12.5px; color: var(--slate); }
+  .toc-dots { flex: 1; border-bottom: 1px dotted var(--muted); margin: 0 6px 3px; }
+  .toc-pg { font-size: 11px; color: var(--muted); }
+
+  /* ─── SECTION WRAPPER ─── */
+  .section {
+    padding: 52px 56px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section:last-child { border-bottom: none; }
+  .section-alt { background: var(--cream); }
+  .section-dark { background: var(--dark); color: var(--white); }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 32px;
+  }
+  .section-num {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    color: var(--amber);
+    text-transform: uppercase;
+    padding-top: 2px;
+  }
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 26px;
+    color: var(--teal-deep);
+    line-height: 1.15;
+  }
+  .section-dark .section-title { color: var(--white); }
+
+  /* ─── BODY ELEMENTS ─── */
+  p { margin-bottom: 12px; color: var(--slate); font-size: 13.5px; }
+  .lead { font-size: 15px; color: var(--dark); line-height: 1.7; margin-bottom: 20px; }
+
+  h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 17px;
+    color: var(--teal-deep);
+    margin: 28px 0 10px;
+  }
+  .section-dark h3 { color: var(--amber); }
+
+  h4 {
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--teal-mid);
+    margin: 20px 0 8px;
+  }
+  .section-dark h4 { color: var(--muted); }
+
+  /* ─── CARDS ─── */
+  .card-row {
+    display: grid;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .card-row.cols-2 { grid-template-columns: 1fr 1fr; }
+  .card-row.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 3px solid var(--teal-mid);
+    padding: 20px;
+    border-radius: 2px;
+  }
+  .card-dark {
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    border-top: 3px solid var(--amber);
+    padding: 20px;
+    border-radius: 2px;
+  }
+  .card-icon {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  .card h4 { margin-top: 0; }
+  .card-dark h4 { color: var(--amber); margin-top: 0; }
+  .card p { font-size: 12.5px; margin: 0; }
+  .card-dark p { color: rgba(255,255,255,.6); font-size: 12.5px; margin: 0; }
+
+  /* ─── PILL LIST ─── */
+  .pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 12px 0;
+  }
+  .pill {
+    background: var(--teal-light);
+    color: var(--teal-deep);
+    font-size: 11.5px;
+    font-weight: 500;
+    padding: 5px 14px;
+    border-radius: 20px;
+  }
+  .pill-amber {
+    background: var(--amber-soft);
+    color: #b5601a;
+  }
+
+  /* ─── BULLET LIST ─── */
+  .blist {
+    list-style: none;
+    margin: 10px 0 16px;
+  }
+  .blist li {
+    padding: 5px 0 5px 20px;
+    position: relative;
+    color: var(--slate);
+    font-size: 13px;
+    border-bottom: 1px solid var(--border);
+  }
+  .blist li:last-child { border-bottom: none; }
+  .blist li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 12px;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--amber);
+  }
+
+  /* ─── CALLOUT ─── */
+  .callout {
+    background: var(--teal-light);
+    border-left: 4px solid var(--teal-mid);
+    padding: 16px 20px;
+    margin: 20px 0;
+    border-radius: 0 4px 4px 0;
+  }
+  .callout p { color: var(--teal-deep); font-size: 13px; margin: 0; }
+  .callout strong { color: var(--teal-deep); }
+
+  .callout-amber {
+    background: var(--amber-soft);
+    border-left-color: var(--amber);
+  }
+  .callout-amber p { color: #7a4010; }
+  .callout-amber strong { color: #7a4010; }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 48px; height: 3px;
+    background: var(--amber);
+    margin: 20px 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     BRAND GUIDELINES SECTION
+  ═══════════════════════════════════════════ */
+
+  /* Color swatches */
+  .swatch-row {
+    display: flex;
+    gap: 12px;
+    margin: 16px 0;
+    flex-wrap: wrap;
+  }
+  .swatch {
+    flex: 1;
+    min-width: 90px;
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,.06);
+  }
+  .swatch-color {
+    height: 64px;
+  }
+  .swatch-info {
+    padding: 8px 10px;
+    background: var(--white);
+  }
+  .swatch-name {
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--dark);
+    display: block;
+  }
+  .swatch-hex {
+    font-size: 10px;
+    color: var(--muted);
+    font-family: monospace;
+  }
+
+  /* Typography specimen */
+  .type-specimen {
+    background: var(--teal-pale);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 28px 28px 20px;
+    margin: 16px 0;
+  }
+  .type-display {
+    font-family: 'DM Serif Display', serif;
+    font-size: 36px;
+    color: var(--teal-deep);
+    line-height: 1.15;
+    margin-bottom: 6px;
+  }
+  .type-display-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 14px;
+  }
+  .type-body-sample {
+    font-size: 13.5px;
+    color: var(--slate);
+    line-height: 1.7;
+    margin-bottom: 6px;
+  }
+  .type-body-label {
+    font-size: 10px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+  }
+  .type-small-sample {
+    font-size: 11px;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: .12em;
+  }
+
+  /* Tone examples */
+  .tone-pair {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    margin: 10px 0;
+  }
+  .tone-before {
+    padding: 14px 16px;
+    background: #fff5f5;
+    border-right: 1px solid var(--border);
+  }
+  .tone-after {
+    padding: 14px 16px;
+    background: #f0faf8;
+  }
+  .tone-label {
+    font-size: 9px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    margin-bottom: 5px;
+  }
+  .tone-before .tone-label { color: #c0392b; }
+  .tone-after .tone-label { color: var(--teal-mid); }
+  .tone-text {
+    font-size: 12.5px;
+    font-style: italic;
+    color: var(--dark);
+  }
+
+  /* ═══════════════════════════════════════════
+     WIREFRAME MOCKUPS
+  ═══════════════════════════════════════════ */
+
+  .wireframe-container {
+    margin: 24px 0;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 2px 20px rgba(0,0,0,.06);
+  }
+  .wireframe-bar {
+    background: #f0f0f0;
+    padding: 8px 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border-bottom: 1px solid #ddd;
+  }
+  .wf-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+  }
+  .wf-dot.red   { background: #ff5f57; }
+  .wf-dot.yel   { background: #febc2e; }
+  .wf-dot.grn   { background: #28c840; }
+  .wf-url {
+    flex: 1;
+    margin: 0 10px;
+    background: var(--white);
+    border-radius: 10px;
+    height: 20px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+    font-size: 10px;
+    color: #999;
+    font-family: monospace;
+  }
+  .wireframe-caption {
+    text-align: center;
+    font-size: 11px;
+    color: var(--muted);
+    font-style: italic;
+    padding: 10px;
+    background: var(--teal-pale);
+  }
+
+  /* ═══════════════════════════════════════════
+     SITEMAP DIAGRAM
+  ═══════════════════════════════════════════ */
+  .sitemap-wrap {
+    background: var(--teal-pale);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 28px 20px;
+    margin: 20px 0;
+  }
+
+  /* ═══════════════════════════════════════════
+     TIMELINE
+  ═══════════════════════════════════════════ */
+  .timeline {
+    position: relative;
+    margin: 20px 0;
+    padding-left: 28px;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 9px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--teal-mid), var(--amber));
+  }
+  .tl-item {
+    position: relative;
+    margin-bottom: 24px;
+    padding-left: 16px;
+  }
+  .tl-dot {
+    position: absolute;
+    left: -25px; top: 4px;
+    width: 14px; height: 14px;
+    border-radius: 50%;
+    background: var(--teal-deep);
+    border: 2px solid var(--white);
+    box-shadow: 0 0 0 2px var(--teal-mid);
+  }
+  .tl-phase {
+    font-size: 10px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    color: var(--amber);
+    margin-bottom: 3px;
+  }
+  .tl-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .tl-desc { font-size: 12.5px; color: var(--muted); margin: 0; }
+
+  /* ─── METRICS TABLE ─── */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin: 20px 0;
+  }
+  .metric-box {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 16px;
+    text-align: center;
+  }
+  .metric-icon { font-size: 22px; margin-bottom: 6px; }
+  .metric-label { font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .metric-desc { font-size: 12px; color: var(--dark); font-weight: 500; }
+
+  /* ─── JOURNEY ─── */
+  .journey {
+    display: flex;
+    margin: 20px 0;
+    gap: 0;
+  }
+  .journey-step {
+    flex: 1;
+    text-align: center;
+    position: relative;
+    padding: 0 6px;
+  }
+  .journey-step::after {
+    content: '→';
+    position: absolute;
+    right: -8px; top: 20px;
+    font-size: 16px;
+    color: var(--amber);
+  }
+  .journey-step:last-child::after { display: none; }
+  .journey-circle {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    background: var(--teal-deep);
+    color: var(--white);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 16px;
+    margin: 0 auto 8px;
+  }
+  .journey-step:last-child .journey-circle { background: var(--amber); }
+  .journey-label { font-size: 10px; font-weight: 600; color: var(--teal-deep); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 4px; }
+  .journey-step:last-child .journey-label { color: #b5601a; }
+  .journey-sub { font-size: 10px; color: var(--muted); }
+
+  /* ─── CLOSING ─── */
+  .closing {
+    background: var(--teal-deep);
+    padding: 56px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .closing-blob1 {
+    position: absolute; border-radius: 50%;
+    width: 300px; height: 300px;
+    background: var(--teal-mid);
+    opacity: .3; top: -80px; left: -60px;
+  }
+  .closing-blob2 {
+    position: absolute; border-radius: 50%;
+    width: 200px; height: 200px;
+    background: var(--amber);
+    opacity: .15; bottom: -50px; right: -40px;
+  }
+  .closing h2 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 30px;
+    color: var(--white);
+    margin-bottom: 14px;
+    position: relative;
+  }
+  .closing h2 em { color: var(--amber); font-style: italic; }
+  .closing p { color: var(--muted); font-size: 14px; max-width: 420px; margin: 0 auto 24px; position: relative; }
+  .closing-cta {
+    display: inline-block;
+    background: var(--amber);
+    color: var(--dark);
+    font-weight: 600;
+    font-size: 13px;
+    padding: 12px 32px;
+    position: relative;
+    letter-spacing: .02em;
+  }
+
+  /* ─── PAGE FOOTER ─── */
+  .doc-footer {
+    padding: 12px 56px;
+    background: var(--dark);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 10px;
+    color: rgba(255,255,255,.35);
+  }
+  .doc-footer strong { color: rgba(255,255,255,.65); }
+
+  /* ═══════════════════════════════════════════
+     ANIMATIONS
+  ═══════════════════════════════════════════ */
+
+  /* Blob float animations */
+  @keyframes blobFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-18px) scale(1.04); }
+  }
+  @keyframes blobDrift {
+    0%, 100% { transform: translateY(0) translateX(0); }
+    33% { transform: translateY(-12px) translateX(8px); }
+    66% { transform: translateY(8px) translateX(-6px); }
+  }
+
+  .cover-blob.b1 { animation: blobFloat 8s ease-in-out infinite; }
+  .cover-blob.b2 { animation: blobDrift 11s ease-in-out infinite 1s; }
+  .cover-blob.b3 { animation: blobFloat 9s ease-in-out infinite 2s; }
+
+  /* Cover entrance animations */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  .cover-tag { animation: fadeDown .7s ease both; }
+  .cover h1 { animation: fadeUp .8s ease both .15s; }
+  .cover-sub { animation: fadeUp .8s ease both .3s; }
+  .cover-chips { animation: fadeUp .8s ease both .45s; }
+  .cover-foot { animation: fadeIn .8s ease both .6s; }
+
+  /* Closing blobs */
+  .closing-blob1 { animation: blobFloat 10s ease-in-out infinite; }
+  .closing-blob2 { animation: blobDrift 12s ease-in-out infinite 1.5s; }
+
+  /* CTA button pulse */
+  @keyframes ctaPulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(244,162,97,.4); }
+    50% { box-shadow: 0 0 0 8px rgba(244,162,97,0); }
+  }
+  .closing-cta {
+    animation: ctaPulse 2.5s ease-in-out infinite 1s;
+    cursor: pointer;
+    transition: transform .2s ease;
+  }
+  .closing-cta:hover { transform: translateY(-2px); }
+
+  /* Card hover lift */
+  .card {
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(26,107,114,.15);
+  }
+  .card-dark {
+    transition: transform .25s ease, box-shadow .25s ease;
+  }
+  .card-dark:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 30px rgba(0,0,0,.25);
+  }
+
+  /* Timeline dot pop animation */
+  @keyframes dotPop {
+    0% { transform: scale(0); }
+    70% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+  }
+
+  /* Scroll reveal animations */
+  .sr {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity .6s cubic-bezier(0.34, 1.56, 0.64, 1), transform .6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .sr.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .sr-left {
+    opacity: 0;
+    transform: translateX(-28px);
+    transition: opacity .6s cubic-bezier(0.34, 1.56, 0.64, 1), transform .6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .sr-left.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .sr-scale {
+    opacity: 0;
+    transform: scale(.95);
+    transition: opacity .6s cubic-bezier(0.34, 1.56, 0.64, 1), transform .6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .sr-scale.visible {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  /* Stagger delays */
+  .sr-d1 { transition-delay: .1s; }
+  .sr-d2 { transition-delay: .2s; }
+  .sr-d3 { transition-delay: .3s; }
+  .sr-d4 { transition-delay: .4s; }
+  .sr-d5 { transition-delay: .5s; }
+
+  /* ─── PRINT ─── */
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; width: 100%; }
+    *, *::before, *::after {
+      animation: none !important;
+      transition: none !important;
+    }
+    .sr, .sr-left, .sr-scale { opacity: 1 !important; transform: none !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ══════════════════════════════════
+       COVER
+  ══════════════════════════════════ -->
+  <div class="cover">
+    <div class="cover-blob b1"></div>
+    <div class="cover-blob b2"></div>
+    <div class="cover-blob b3"></div>
+
+    <div class="cover-tag">Website Project Proposal · 2025</div>
+    <h1>Building a <em>Digital Home</em> for Children &amp; Families</h1>
+    <p class="cover-sub">A website development proposal for an ABA Therapy &amp; Autism Support Organization</p>
+
+    <div class="cover-chips">
+      <span class="chip">Evidence-Based ABA Therapy</span>
+      <span class="chip">Diagnostic Evaluations</span>
+      <span class="chip">Family Support Services</span>
+      <span class="chip">Client-Centered Care</span>
+    </div>
+
+    <div class="cover-foot">
+      <span><strong>Prepared by:</strong> Website Development Team</span>
+      <span><strong>Document Type:</strong> Project Proposal &amp; Creative Brief</span>
+      <span><strong>Version:</strong> 1.0</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       TABLE OF CONTENTS
+  ══════════════════════════════════ -->
+  <div class="toc">
+    <h2>Contents</h2>
+    <div class="toc-grid">
+      <div class="toc-item"><span class="toc-num">01</span><span class="toc-label">Project Overview</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">02</span><span class="toc-label">Understanding the Organization</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">03</span><span class="toc-label">How the Website Serves the Mission</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">04</span><span class="toc-label">Insurance &amp; Pricing Strategy</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">05</span><span class="toc-label">HIPAA &amp; Data Security</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">06</span><span class="toc-label">Staff Credentials &amp; Team Transparency</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">07</span><span class="toc-label">Booking System &amp; Intake Process</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">08</span><span class="toc-label">Design Philosophy</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">09</span><span class="toc-label">Brand Guidelines</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">10</span><span class="toc-label">Website Structure &amp; Sitemap</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">11</span><span class="toc-label">Wireframe Mockups</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">12</span><span class="toc-label">User Journey</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">13</span><span class="toc-label">Key Features &amp; Functionality</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">14</span><span class="toc-label">Success Metrics</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">15</span><span class="toc-label">Project Timeline &amp; Deliverables</span><span class="toc-dots"></span></div>
+      <div class="toc-item"><span class="toc-num">16</span><span class="toc-label">Closing Statement</span><span class="toc-dots"></span></div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       01 · PROJECT OVERVIEW
+  ══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">01</span>
+      <h2 class="section-title">Project Overview</h2>
+    </div>
+    <p class="lead">This proposal outlines the design and development of a professional, empathetic, and conversion-focused website for an organization providing ABA therapy, diagnostic evaluations, and autism support services.</p>
+    <div class="divider"></div>
+    <div class="card-row cols-3">
+      <div class="card">
+        <div class="card-icon">🎯</div>
+        <h4>Objective</h4>
+        <p>Design and build a modern, accessible website that communicates the mission, builds trust with families, and supports access to services.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">💡</div>
+        <h4>Core Idea</h4>
+        <p>More than an online brochure — a tool for <strong>connection, education, and conversion</strong>, turning first-time visitors into engaged clients.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌱</div>
+        <h4>Impact</h4>
+        <p>Enable the organization to reach more families, reduce inquiry friction, and extend its vision of every child achieving their full potential.</p>
+      </div>
+    </div>
+    <div class="callout">
+      <p><strong>Guiding Principle:</strong> Every design decision — from the color on a button to the words in a headline — should serve one goal: making a worried parent feel seen, supported, and ready to take the next step.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       02 · UNDERSTANDING THE ORG
+  ══════════════════════════════════ -->
+  <div class="section section-alt">
+    <div class="section-header">
+      <span class="section-num">02</span>
+      <h2 class="section-title">Understanding the Organization</h2>
+    </div>
+    <p class="lead">Before a single pixel is designed, we must deeply understand who this organization is, what they believe, and who they serve.</p>
+
+    <div class="card-row cols-2">
+      <div class="card">
+        <h4>Mission</h4>
+        <p>Provide client-centered, evidence-based behavioral therapy for children with autism in a nurturing learning environment where every child is valued and supported.</p>
+      </div>
+      <div class="card">
+        <h4>Vision</h4>
+        <p>A community in which all children — regardless of diagnosis — achieve their full potential, supported by families, professionals, and each other.</p>
+      </div>
+    </div>
+
+    <h3>Services Offered</h3>
+    <ul class="blist">
+      <li><strong>ABA Therapy</strong> — Evidence-based applied behavior analysis interventions tailored to each child's unique needs and goals.</li>
+      <li><strong>Diagnostic Evaluations</strong> — Comprehensive assessments to help families get clarity and direction for their child's support journey.</li>
+      <li><strong>Parent &amp; Family Support</strong> — Resources, training, and guidance to empower families as active partners in their child's growth.</li>
+    </ul>
+
+    <h3>Who We're Designing For</h3>
+    <div class="pill-list">
+      <span class="pill">Parents of children with autism</span>
+      <span class="pill">Caregivers seeking diagnosis</span>
+      <span class="pill">Families new to ABA therapy</span>
+      <span class="pill">Schools &amp; referral partners</span>
+      <span class="pill">Healthcare professionals</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       03 · HOW WEBSITE SERVES MISSION
+  ══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">03</span>
+      <h2 class="section-title">How the Website Serves the Mission</h2>
+    </div>
+    <p class="lead">Every section of the website is designed with a strategic purpose — tied directly to the organization's goals.</p>
+    <div class="divider"></div>
+
+    <h3>A. Build Trust &amp; Credibility</h3>
+    <p>Parents placing their child's care in the hands of a provider need to feel confident. The website achieves this through professional, compassionate design, transparent explanations of therapy methods, staff bios, and real family testimonials — all working together to signal expertise and warmth simultaneously.</p>
+
+    <h3>B. Educate Families</h3>
+    <p>Many families arrive with limited understanding of autism diagnosis or ABA therapy. The website serves as an educational resource — with plain-language explanations, FAQs, and downloadable guides — empowering families to make informed decisions without feeling overwhelmed.</p>
+
+    <h3>C. Drive Client Acquisition</h3>
+    <p>Clear calls-to-action at every touchpoint guide visitors toward the next step, whether that is booking an evaluation, calling the team, or submitting an inquiry form. The site removes friction from the intake journey.</p>
+
+    <div class="card-row cols-2">
+      <div class="callout">
+        <p><strong>"Book an Evaluation"</strong> — The primary CTA, prominent on the homepage hero and repeated throughout.</p>
+      </div>
+      <div class="callout">
+        <p><strong>"Start Therapy"</strong> — Secondary action for families already informed and ready to begin.</p>
+      </div>
+    </div>
+
+    <h3>D. Improve Accessibility &amp; Reach</h3>
+    <p>Mobile-first responsive design ensures parents on the go — at a hospital, a school meeting, or at home — can access information easily. WCAG-compliant design ensures the site is usable by all, including users with visual or cognitive differences.</p>
+  </div>
+
+  <!-- ══════════════════════════════════
+       04 · INSURANCE & PRICING STRATEGY
+  ══════════════════════════════════ -->
+  <div class="section section-alt">
+    <div class="section-header">
+      <span class="section-num">04</span>
+      <h2 class="section-title">Insurance &amp; Pricing Strategy</h2>
+    </div>
+    <p class="lead">Families choosing ABA therapy face significant financial concerns. The website must address insurance, costs, and payment options transparently — removing barriers to access.</p>
+    <div class="divider"></div>
+
+    <h3>Website Content Strategy</h3>
+    <p>A dedicated <strong>Pricing &amp; Insurance</strong> page will be prominent in primary navigation, addressing the first question most parents ask: "What will this cost?"</p>
+
+    <div class="card-row cols-2">
+      <div class="card">
+        <h4>Insurance Acceptance</h4>
+        <p>Display a list of accepted insurance plans prominently. Include major carriers (Medicaid, BlueCross, Aetna, etc.) with notes on regional coverage and verification process.</p>
+      </div>
+      <div class="card">
+        <h4>Out-of-Pocket Costs</h4>
+        <p>Transparent pricing for co-pays, deductibles, and uninsured services. A cost calculator tool can help families estimate expenses upfront.</p>
+      </div>
+      <div class="card">
+        <h4>Financial Aid &amp; Sliding Scale</h4>
+        <p>Clearly explain any available discounts for families with limited income. Families need to know no child is turned away due to cost.</p>
+      </div>
+      <div class="card">
+        <h4>Billing &amp; Verification Process</h4>
+        <p>Explain how insurance verification works, what to expect during intake, and how families can verify coverage before booking.</p>
+      </div>
+    </div>
+
+    <div class="callout-amber callout">
+      <p><strong>Critical:</strong> If cost is a barrier, families won't even book an evaluation. Transparency here converts anxiety into action.</p>
+    </div>
+
+    <h3>Wireframe: Pricing Page Structure</h3>
+    <ul class="blist">
+      <li><strong>Hero Section</strong> — "Transparent Pricing Built for Families"</li>
+      <li><strong>Insurance List</strong> — Searchable database or list of accepted carriers</li>
+      <li><strong>Cost Breakdown Card</strong> — Typical session costs, evaluation fees, family training sessions</li>
+      <li><strong>FAQ Accordion</strong> — "Do you accept my insurance?", "What if I can't afford it?", "Is there a payment plan?"</li>
+      <li><strong>Verification CTA</strong> — "Verify Your Coverage" button linking to form or phone number</li>
+      <li><strong>Appointment Booking</strong> — "Ready to start?" with prominent booking CTA</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════
+       05 · HIPAA & DATA SECURITY
+  ══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">05</span>
+      <h2 class="section-title">HIPAA &amp; Data Security</h2>
+    </div>
+    <p class="lead">When families provide information on this website — especially about their child's diagnosis, therapy history, and contact details — that data is protected health information (PHI). The website must comply with HIPAA regulations.</p>
+    <div class="divider"></div>
+
+    <h3>A. HIPAA Compliance Requirements</h3>
+    <div class="card-row cols-2">
+      <div class="card">
+        <h4>SSL/TLS Encryption</h4>
+        <p>All pages served over HTTPS. Any form collecting personal or health information must transmit data through encrypted channels (minimum TLS 1.2).</p>
+      </div>
+      <div class="card">
+        <h4>Business Associate Agreements (BAA)</h4>
+        <p>Any third-party tools (CMS, forms, email services, analytics) that touch PHI must have a signed BAA in place. This includes hosting providers and form processors.</p>
+      </div>
+      <div class="card">
+        <h4>Access Controls</h4>
+        <p>Only authorized staff can access submitted forms or inquiries. Implement role-based permissions and audit logging to track who accessed what data and when.</p>
+      </div>
+      <div class="card">
+        <h4>Data Retention Policies</h4>
+        <p>Define how long inquiry data is retained (e.g., 6 months for completed intakes, 2 years for archive). Implement automatic deletion of expired records.</p>
+      </div>
+    </div>
+
+    <h3>B. Privacy Policy &amp; Consent</h3>
+    <ul class="blist">
+      <li><strong>Privacy Policy Page</strong> — Explain what data is collected, how it's used, how it's protected, and how families can request access/deletion</li>
+      <li><strong>Form Consent Checkbox</strong> — "I consent to my information being used for scheduling and follow-up. I understand this information is protected under HIPAA."</li>
+      <li><strong>Privacy Notice (49 CFR Part 11)</strong> — Required by HIPAA; provide at first encounter or on website</li>
+      <li><strong>Data Breach Protocol</strong> — Define steps if data is ever compromised (notification within 60 days, etc.)</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Recommendation:</strong> Include a badge or statement on the contact page: "HIPAA Compliant" or "Your information is secure and protected." This reassures families.</p>
+    </div>
+
+    <h3>C. Third-Party Tool Audit</h3>
+    <p>During development, audit all integrated tools for HIPAA compliance:</p>
+    <ul class="blist">
+      <li>CMS Platform — Must offer HIPAA-compliant hosting or BAA option</li>
+      <li>Form Tool (Typeform, JotForm, custom form) — Must have data encryption and BAA available</li>
+      <li>Email Service — Ensure messages containing PHI are encrypted in transit and at rest</li>
+      <li>Analytics (Google Analytics, Hotjar) — De-identify any user tracking; avoid capturing form data</li>
+      <li>Hosting Provider — Must be HIPAA-eligible and offer compliant infrastructure</li>
+    </ul>
+
+    <div class="callout-amber callout">
+      <p><strong>Legal Risk:</strong> HIPAA violations can result in fines up to $1.5M per year per violation. This is non-negotiable.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       06 · STAFF CREDENTIALS & TEAM TRANSPARENCY
+  ══════════════════════════════════ -->
+  <div class="section section-alt">
+    <div class="section-header">
+      <span class="section-num">06</span>
+      <h2 class="section-title">Staff Credentials &amp; Team Transparency</h2>
+    </div>
+    <p class="lead">Trust is built on credentials. Parents want to know: Who is treating my child? What certifications do they have? How experienced are they?</p>
+    <div class="divider"></div>
+
+    <h3>Team Directory — Proposed Structure</h3>
+    <p>The <strong>About Us &gt; Team</strong> page will feature a staff directory displaying:</p>
+
+    <div class="card-row cols-2">
+      <div class="card">
+        <h4>Profile Photo</h4>
+        <p>Professional headshot (warm, approachable tone matching brand guidelines)</p>
+      </div>
+      <div class="card">
+        <h4>Name &amp; Title</h4>
+        <p>Full name, role (Clinical Director, Senior Therapist, etc.)</p>
+      </div>
+      <div class="card">
+        <h4>Credentials Badge</h4>
+        <p>BCBA-D, BCBA, RBT, MA/MS in behavior analysis, licensure state/number, expiration date</p>
+      </div>
+      <div class="card">
+        <h4>Specializations</h4>
+        <p>Years of experience, areas of focus (e.g., "Early intervention," "School-age children," "Social skills")</p>
+      </div>
+      <div class="card">
+        <h4>Bio Snippet</h4>
+        <p>Brief personal narrative: Why they work in ABA, what drives them, connection to the mission</p>
+      </div>
+      <div class="card">
+        <h4>Continuing Education</h4>
+        <p>Recent trainings or certifications to signal ongoing professional development</p>
+      </div>
+    </div>
+
+    <h3>Credential Verification &amp; Updates</h3>
+    <ul class="blist">
+      <li>All credentials must be verified annually against state licensing boards and BACB registry before publication</li>
+      <li>Establish a process for updating certifications as staff renew licenses</li>
+      <li>Include notation of recent trainings or advanced certifications (trauma-informed care, bilingual ABA, etc.)</li>
+      <li>Display commitment to professional development to signal quality care</li>
+    </ul>
+
+    <h3>Website Features to Build Trust</h3>
+    <div class="pill-list">
+      <span class="pill">Credential filters (filter by BCBA, RBT, specialty)</span>
+      <span class="pill">Patient testimonials tied to therapist names</span>
+      <span class="pill">"Meet the Team" video introductions</span>
+      <span class="pill">Years of experience counter</span>
+      <span class="pill">Staff bios emphasizing compassion + expertise</span>
+    </div>
+
+    <div class="callout">
+      <p><strong>Strategic Benefit:</strong> A transparent team directory becomes a competitive differentiator. Families see exactly who they're working with, reducing anxiety and building confidence before the first appointment.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       07 · BOOKING SYSTEM & INTAKE PROCESS
+  ══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">07</span>
+      <h2 class="section-title">Booking System &amp; Intake Process</h2>
+    </div>
+    <p class="lead">The journey from "I'm interested" to "I have an appointment" must be frictionless. This section clarifies the booking experience and sets expectations.</p>
+    <div class="divider"></div>
+
+    <h3>A. Booking Method: Real-Time vs. Manual Intake</h3>
+    <p>Two paths are recommended:</p>
+
+    <div class="card-row cols-2">
+      <div class="card">
+        <h4>Option 1: Integrated Scheduling System</h4>
+        <p><strong>Best Practice</strong> — Parents see real-time availability and book directly. Tools like Calendly, Acuity Scheduling, or Setmore integrate with CMS. Families receive instant confirmation and calendar reminder.</p>
+      </div>
+      <div class="card">
+        <h4>Option 2: Inquiry Form + Manual Follow-Up</h4>
+        <p><strong>More Controlled</strong> — Parents fill form, staff reviews and calls within 24 hours. Allows for qualification (insurance verification, waitlist status) before confirming.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:16px; font-weight:500; color: var(--teal-deep);">Recommendation: <strong>Hybrid approach</strong> — Real-time scheduling for immediate availability, with a "Request a Call" option for those who prefer human contact first.</p>
+
+    <h3>B. Intake Process Transparency</h3>
+    <p>The website must clearly explain what happens after booking. Create an <strong>FAQ: Intake Process</strong> page:</p>
+
+    <ul class="blist">
+      <li><strong>What to Expect at the Evaluation</strong> — Duration, format (virtual or in-person), what parents should bring</li>
+      <li><strong>Pre-Evaluation Questions</strong> — Child's history, concerns, goals collected via form before appointment</li>
+      <li><strong>Confirmation &amp; Reminders</strong> — Email + SMS reminder 48 hours before appointment</li>
+      <li><strong>Insurance Verification</strong> — Confirm coverage at scheduling or contact family with any co-pay info</li>
+      <li><strong>What Happens After Evaluation</strong> — Timeline for results, next steps, therapy plan discussion</li>
+    </ul>
+
+    <h3>C. Waitlist Management</h3>
+    <p>If the organization has capacity constraints, transparency about waitlist status builds trust:</p>
+
+    <div class="card-row cols-2">
+      <div class="card">
+        <h4>Waitlist Status on Website</h4>
+        <p>"Currently accepting new clients" or "Waitlist estimated at [X] weeks" displayed prominently. Updates weekly to reflect reality.</p>
+      </div>
+      <div class="card">
+        <h4>Waitlist Signup Form</h4>
+        <p>If full, offer a "Get on Waitlist" button. Families enter contact info and are notified when capacity opens.</p>
+      </div>
+    </div>
+
+    <div class="callout-amber callout">
+      <p><strong>Critical UX Detail:</strong> Never leave a family wondering "What happens next?" Every CTA should be followed by clear next steps and timelines.</p>
+    </div>
+
+    <h3>D. Multi-Channel Contact Options</h3>
+    <p>Provide multiple ways to inquire — some families prefer to call, others to text, others to fill a form:</p>
+    <ul class="blist">
+      <li>📞 <strong>Phone</strong> — Direct line with hours clearly stated</li>
+      <li>💬 <strong>SMS/Text</strong> — Opt-in text reminder and quick inquiry via text</li>
+      <li>📧 <strong>Email</strong> — For detailed questions; response within 24 hours guaranteed</li>
+      <li>📅 <strong>Online Booking</strong> — Real-time scheduling for faster service</li>
+      <li>💬 <strong>Live Chat</strong> — (Future phase) Real-time support during business hours</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Insight:</strong> Most parents will try multiple channels. Ensure all routes lead to the same team and that inquiries are logged in a central system to avoid confusion or duplicate outreach.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       08 · DESIGN PHILOSOPHY
+  ══════════════════════════════════ -->
+  <div class="section section-dark">
+    <div class="section-header">
+      <span class="section-num">08</span>
+      <h2 class="section-title">Design Philosophy</h2>
+    </div>
+    <p style="color:rgba(255,255,255,.6); font-size:14px; margin-bottom:24px;">Our design is not merely aesthetic — it is intentional. Every choice communicates something to a parent who may be anxious, exhausted, or hopeful when they arrive on the site.</p>
+
+    <div class="card-row cols-2">
+      <div class="card-dark">
+        <h4>1 · Empathy-Driven Design</h4>
+        <p>Parents visiting this site may feel overwhelmed. The design must feel <em>calm, reassuring, and safe</em>. Generous white space, soft palettes, and nurturing imagery replace clinical coldness with human warmth.</p>
+      </div>
+      <div class="card-dark">
+        <h4>2 · Clarity Over Complexity</h4>
+        <p>Simple navigation. Minimal jargon. Clear next steps. A parent should understand the key message — and what to do — within 10 seconds of arriving on any page.</p>
+      </div>
+      <div class="card-dark">
+        <h4>3 · Trust Through Professionalism</h4>
+        <p>Clean layouts, consistent typography, and evidence-based language convey that this organization knows what it's doing — and does it with care. Trust is earned in milliseconds.</p>
+      </div>
+      <div class="card-dark">
+        <h4>4 · Accessibility First</h4>
+        <p>Readable fonts at appropriate sizes, strong color contrast, keyboard-navigable UI, and semantic HTML ensure the site is usable by everyone — embodying the inclusion the organization stands for.</p>
+      </div>
+    </div>
+
+    <div class="callout-amber callout" style="margin-top:24px;">
+      <p><strong>Design Mantra:</strong> "If a tired parent at midnight can find what they need and feel hope — we've succeeded."</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       05 · BRAND GUIDELINES
+  ══════════════════════════════════ -->
+  <div class="section section-alt">
+    <div class="section-header">
+      <span class="section-num">09</span>
+      <h2 class="section-title">Brand Guidelines</h2>
+    </div>
+    <p class="lead">A consistent visual identity builds recognition and trust. Below are the core brand decisions that will govern all design output.</p>
+    <div class="divider"></div>
+
+    <h3>Color Palette</h3>
+    <p>Colors are chosen to communicate calm, trust, growth, and warmth — the emotional spectrum of this organization's work.</p>
+    <div class="swatch-row">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1A6B72;"></div>
+        <div class="swatch-info"><span class="swatch-name">Deep Teal</span><span class="swatch-hex">#1A6B72</span><br><span style="font-size:9px;color:#999;">Primary · Trust</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#2B9E88;"></div>
+        <div class="swatch-info"><span class="swatch-name">Teal</span><span class="swatch-hex">#2B9E88</span><br><span style="font-size:9px;color:#999;">Secondary · Growth</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#F4A261;"></div>
+        <div class="swatch-info"><span class="swatch-name">Amber</span><span class="swatch-hex">#F4A261</span><br><span style="font-size:9px;color:#999;">Accent · Hope</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E8F5F3;"></div>
+        <div class="swatch-info"><span class="swatch-name">Light Teal</span><span class="swatch-hex">#E8F5F3</span><br><span style="font-size:9px;color:#999;">Background · Calm</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#1C2B2A;"></div>
+        <div class="swatch-info"><span class="swatch-name">Near Black</span><span class="swatch-hex">#1C2B2A</span><br><span style="font-size:9px;color:#999;">Text · Contrast</span></div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FEFCF9; border:1px solid #eee;"></div>
+        <div class="swatch-info"><span class="swatch-name">Cream White</span><span class="swatch-hex">#FEFCF9</span><br><span style="font-size:9px;color:#999;">Page · Clean</span></div>
+      </div>
+    </div>
+
+    <h3>Typography</h3>
+    <div class="type-specimen">
+      <div class="type-display">DM Serif Display</div>
+      <div class="type-display-label">Headings · Titles · Display — Warm, authoritative, human</div>
+      <div class="type-body-label">Body Font — DM Sans</div>
+      <div class="type-body-sample">Providing client-centered, evidence-based ABA therapy for children with autism in a nurturing learning environment where every child is seen, supported, and able to thrive.</div>
+      <div style="height:1px; background:var(--border); margin:12px 0;"></div>
+      <div class="type-small-sample">Caption / Label text — DM Sans · 11px · Uppercase · Tracked</div>
+    </div>
+
+    <h3>Brand Personality</h3>
+    <div class="pill-list">
+      <span class="pill-amber pill">Compassionate</span>
+      <span class="pill-amber pill">Professional</span>
+      <span class="pill-amber pill">Supportive</span>
+      <span class="pill-amber pill">Trustworthy</span>
+      <span class="pill-amber pill">Empowering</span>
+      <span class="pill-amber pill">Evidence-Based</span>
+    </div>
+
+    <h3>Voice &amp; Tone — Before vs. After</h3>
+    <p style="margin-bottom:12px;">The language of the website should feel like a knowledgeable friend — not a clinical report. Here are examples of how we translate cold copy into warm, clear communication.</p>
+
+    <div class="tone-pair">
+      <div class="tone-before"><div class="tone-label">❌ Avoid</div><div class="tone-text">"Behavioral intervention services for individuals with ASD."</div></div>
+      <div class="tone-after"><div class="tone-label">✓ Use Instead</div><div class="tone-text">"Helping your child build everyday skills they'll use for life."</div></div>
+    </div>
+    <div class="tone-pair">
+      <div class="tone-before"><div class="tone-label">❌ Avoid</div><div class="tone-text">"ASD diagnostic assessment protocol."</div></div>
+      <div class="tone-after"><div class="tone-label">✓ Use Instead</div><div class="tone-text">"Get a clear picture of your child's needs."</div></div>
+    </div>
+    <div class="tone-pair">
+      <div class="tone-before"><div class="tone-label">❌ Avoid</div><div class="tone-text">"Individualized treatment planning and discrete trial training."</div></div>
+      <div class="tone-after"><div class="tone-label">✓ Use Instead</div><div class="tone-text">"A therapy plan made just for your child — and your family."</div></div>
+    </div>
+
+    <h3>Imagery Direction</h3>
+    <ul class="blist">
+      <li>Real, diverse families and children — not staged or artificial stock imagery</li>
+      <li>Warm, natural lighting and indoor/outdoor settings that feel welcoming</li>
+      <li>Focus on positive moments: a child learning, a parent smiling, a therapist guiding with patience</li>
+      <li>Avoid imagery that emphasizes disability over ability or feels clinical</li>
+    </ul>
+  </div>
+
+  <!-- ══════════════════════════════════
+       06 · WEBSITE STRUCTURE
+  ══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">10</span>
+      <h2 class="section-title">Website Structure &amp; Sitemap</h2>
+    </div>
+    <p class="lead">A clear, intuitive structure ensures visitors can always find what they need in as few clicks as possible.</p>
+
+    <!-- SVG Sitemap -->
+    <div class="sitemap-wrap">
+      <svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;">
+        <!-- Home node -->
+        <rect x="260" y="10" width="160" height="44" rx="4" fill="#1A6B72"/>
+        <text x="340" y="37" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="13" font-weight="600" fill="white">🏠 Home</text>
+
+        <!-- Connector line down from Home -->
+        <line x1="340" y1="54" x2="340" y2="74" stroke="#8EAEAC" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <!-- Horizontal spine -->
+        <line x1="60" y1="74" x2="620" y2="74" stroke="#8EAEAC" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+        <!-- Vertical drops -->
+        <line x1="60"  y1="74" x2="60"  y2="100" stroke="#8EAEAC" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="190" y1="74" x2="190" y2="100" stroke="#8EAEAC" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="340" y1="74" x2="340" y2="100" stroke="#8EAEAC" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="490" y1="74" x2="490" y2="100" stroke="#8EAEAC" stroke-width="1.5" stroke-dasharray="4,3"/>
+        <line x1="620" y1="74" x2="620" y2="100" stroke="#8EAEAC" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+        <!-- Level 2 pages -->
+        <!-- About Us -->
+        <rect x="10" y="100" width="100" height="40" rx="3" fill="#2B9E88"/>
+        <text x="60" y="125" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="white" font-weight="500">About Us</text>
+
+        <!-- Services -->
+        <rect x="140" y="100" width="100" height="40" rx="3" fill="#2B9E88"/>
+        <text x="190" y="125" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="white" font-weight="500">Services</text>
+
+        <!-- Resources -->
+        <rect x="290" y="100" width="100" height="40" rx="3" fill="#2B9E88"/>
+        <text x="340" y="125" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="white" font-weight="500">Resources</text>
+
+        <!-- Testimonials -->
+        <rect x="440" y="100" width="100" height="40" rx="3" fill="#2B9E88"/>
+        <text x="490" y="125" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="white" font-weight="500">Testimonials</text>
+
+        <!-- Contact -->
+        <rect x="570" y="100" width="100" height="40" rx="3" fill="#F4A261"/>
+        <text x="620" y="125" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#1C2B2A" font-weight="600">Contact / CTA</text>
+
+        <!-- Level 3 — Services sub -->
+        <line x1="190" y1="140" x2="190" y2="162" stroke="#D4E8E6" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <line x1="130" y1="162" x2="250" y2="162" stroke="#D4E8E6" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <line x1="130" y1="162" x2="130" y2="178" stroke="#D4E8E6" stroke-width="1.5"/>
+        <line x1="190" y1="162" x2="190" y2="178" stroke="#D4E8E6" stroke-width="1.5"/>
+        <line x1="250" y1="162" x2="250" y2="178" stroke="#D4E8E6" stroke-width="1.5"/>
+        <rect x="90"  y="178" width="80" height="34" rx="3" fill="#E8F5F3" stroke="#2B9E88" stroke-width="1"/>
+        <text x="130" y="199" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9.5" fill="#1A6B72">ABA Therapy</text>
+        <rect x="150" y="178" width="80" height="34" rx="3" fill="#E8F5F3" stroke="#2B9E88" stroke-width="1"/>
+        <text x="190" y="192" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9.5" fill="#1A6B72">Diagnostic</text>
+        <text x="190" y="205" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9.5" fill="#1A6B72">Evaluations</text>
+        <rect x="210" y="178" width="80" height="34" rx="3" fill="#E8F5F3" stroke="#2B9E88" stroke-width="1"/>
+        <text x="250" y="192" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9.5" fill="#1A6B72">Family</text>
+        <text x="250" y="205" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9.5" fill="#1A6B72">Support</text>
+
+        <!-- Level 3 — About sub -->
+        <line x1="60" y1="140" x2="60" y2="162" stroke="#D4E8E6" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <line x1="20"  y1="162" x2="100" y2="162" stroke="#D4E8E6" stroke-width="1.5" stroke-dasharray="3,3"/>
+        <line x1="20"  y1="162" x2="20"  y2="178" stroke="#D4E8E6" stroke-width="1.5"/>
+        <line x1="60"  y1="162" x2="60"  y2="178" stroke="#D4E8E6" stroke-width="1.5"/>
+        <line x1="100" y1="162" x2="100" y2="178" stroke="#D4E8E6" stroke-width="1.5"/>
+        <rect x="0"   y="178" width="40" height="34" rx="3" fill="#E8F5F3" stroke="#2B9E88" stroke-width="1"/>
+        <text x="20"  y="199" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8.5" fill="#1A6B72">Mission</text>
+        <rect x="42"  y="178" width="36" height="34" rx="3" fill="#E8F5F3" stroke="#2B9E88" stroke-width="1"/>
+        <text x="60"  y="199" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8.5" fill="#1A6B72">Team</text>
+        <rect x="82"  y="178" width="36" height="34" rx="3" fill="#E8F5F3" stroke="#2B9E88" stroke-width="1"/>
+        <text x="100" y="199" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8.5" fill="#1A6B72">Blog</text>
+
+        <!-- Legend -->
+        <rect x="10" y="240" width="14" height="14" rx="2" fill="#1A6B72"/>
+        <text x="30" y="252" font-family="DM Sans,sans-serif" font-size="10" fill="#4A6B69">Main Navigation</text>
+        <rect x="130" y="240" width="14" height="14" rx="2" fill="#2B9E88"/>
+        <text x="150" y="252" font-family="DM Sans,sans-serif" font-size="10" fill="#4A6B69">Primary Pages</text>
+        <rect x="250" y="240" width="14" height="14" rx="2" fill="#E8F5F3" stroke="#2B9E88" stroke-width="1"/>
+        <text x="270" y="252" font-family="DM Sans,sans-serif" font-size="10" fill="#4A6B69">Sub-Pages</text>
+        <rect x="360" y="240" width="14" height="14" rx="2" fill="#F4A261"/>
+        <text x="380" y="252" font-family="DM Sans,sans-serif" font-size="10" fill="#4A6B69">Primary CTA</text>
+      </svg>
+    </div>
+
+    <h3>Page Descriptions</h3>
+    <ul class="blist">
+      <li><strong>Home</strong> — Overview, mission statement, key services at a glance, and a strong primary CTA. First impression — must inspire confidence within seconds.</li>
+      <li><strong>About Us</strong> — Organization story, mission and vision, therapy approach, and staff/team profiles (with credentials and photos) to humanize the brand.</li>
+      <li><strong>Services</strong> — Detailed pages for ABA Therapy, Diagnostic Evaluations, and Family Support — each with its own SEO-friendly content.</li>
+      <li><strong>Pricing &amp; Insurance</strong> — <strong>NEW PRIMARY PAGE</strong> — Transparent information about accepted insurance carriers, cost estimates, financial aid options, and coverage verification process. Critical for conversion.</li>
+      <li><strong>FAQ &amp; Intake Process</strong> — <strong>NEW</strong> — Clear guidance on what happens after booking, what to expect during evaluation, pre-evaluation forms, and timeline. Reduces anxiety and no-shows.</li>
+      <li><strong>Resources</strong> — Articles, FAQs, downloadable guides for parents. Includes links to Accessibility &amp; Accommodations page and Crisis Resources.</li>
+      <li><strong>Accessibility &amp; Accommodations</strong> — <strong>NEW SUB-PAGE</strong> — Information for families with accessibility needs, sensory sensitivities, and how the organization supports diverse learners.</li>
+      <li><strong>Crisis Resources &amp; Emergency Support</strong> — <strong>NEW SUB-PAGE</strong> — Emergency contact information, crisis hotlines, and steps families should take if a child is in crisis.</li>
+      <li><strong>Testimonials</strong> — Real family stories and success narratives. The most powerful form of social proof for anxious parents.</li>
+      <li><strong>Contact / Get Started</strong> — Appointment booking form, phone, email, location map, insurance/coverage verification, multi-channel contact options (phone, text, email, online scheduling).</li>
+    </ul>
+
+    <div class="callout-amber callout">
+      <p><strong>Navigation Update:</strong> Add "Pricing" as a visible menu item in the primary navigation. This signals transparency and should appear between "Services" and "Resources" or prominently in the footer.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       11 · WIREFRAME MOCKUPS
+  ══════════════════════════════════ -->
+  <div class="section section-alt">
+    <div class="section-header">
+      <span class="section-num">11</span>
+      <h2 class="section-title">Wireframe Mockups</h2>
+    </div>
+    <p class="lead">These wireframes illustrate the intended layout and content hierarchy for key pages. They are structural guides — final visual design will follow brand guidelines.</p>
+
+    <!-- HOMEPAGE WIREFRAME -->
+    <h3>Homepage — Above the Fold</h3>
+    <div class="wireframe-container">
+      <div class="wireframe-bar">
+        <div class="wf-dot red"></div><div class="wf-dot yel"></div><div class="wf-dot grn"></div>
+        <div class="wf-url">www.yourorganization.com</div>
+      </div>
+      <svg viewBox="0 0 682 480" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#fff;">
+
+        <!-- Nav -->
+        <rect x="0" y="0" width="682" height="52" fill="#1A6B72"/>
+        <rect x="24" y="16" width="80" height="20" rx="3" fill="rgba(255,255,255,0.3)"/>
+        <text x="64" y="31" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="white" font-weight="600">[Logo]</text>
+        <text x="260" y="31" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">About</text>
+        <text x="320" y="31" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Services</text>
+        <text x="380" y="31" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Pricing</text>
+        <text x="450" y="31" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="rgba(255,255,255,0.8)">Resources</text>
+        <rect x="540" y="13" width="120" height="26" rx="3" fill="#F4A261"/>
+        <text x="600" y="31" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#1C2B2A" font-weight="600">Book an Evaluation</text>
+
+        <!-- Hero section -->
+        <rect x="0" y="52" width="420" height="240" fill="#E8F5F3"/>
+        <!-- Hero text area -->
+        <rect x="32" y="80" width="260" height="16" rx="3" fill="#1A6B72" opacity="0.2"/>
+        <rect x="32" y="104" width="340" height="28" rx="3" fill="#1A6B72" opacity="0.7"/>
+        <rect x="32" y="140" width="300" height="28" rx="3" fill="#1A6B72" opacity="0.5"/>
+        <rect x="32" y="176" width="320" height="12" rx="2" fill="#8EAEAC" opacity="0.6"/>
+        <rect x="32" y="196" width="280" height="12" rx="2" fill="#8EAEAC" opacity="0.6"/>
+        <rect x="32" y="224" width="140" height="36" rx="3" fill="#F4A261"/>
+        <text x="102" y="247" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#1C2B2A" font-weight="600">Book an Evaluation</text>
+        <rect x="186" y="224" width="110" height="36" rx="3" fill="none" stroke="#1A6B72" stroke-width="1.5"/>
+        <text x="241" y="247" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#1A6B72">Learn More →</text>
+
+        <!-- Hero image placeholder -->
+        <rect x="420" y="52" width="262" height="240" fill="#2B9E88" opacity="0.15"/>
+        <text x="551" y="155" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#4A6B69">Hero Image</text>
+        <text x="551" y="170" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#8EAEAC">(family / child photo)</text>
+
+        <!-- Trust bar -->
+        <rect x="0" y="292" width="682" height="50" fill="#F4A261" opacity="0.12"/>
+        <text x="120" y="322" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#1A6B72" font-weight="600">✓ Evidence-Based ABA</text>
+        <text x="340" y="322" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#1A6B72" font-weight="600">✓ Licensed Therapists</text>
+        <text x="560" y="322" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#1A6B72" font-weight="600">✓ Family-Centered Approach</text>
+
+        <!-- Services section -->
+        <rect x="0" y="342" width="682" height="30" fill="none"/>
+        <text x="341" y="366" text-anchor="middle" font-family="DM Serif Display,serif" font-size="16" fill="#1A6B72">Our Services</text>
+
+        <!-- Service cards -->
+        <rect x="24" y="380" width="196" height="86" rx="4" fill="white" stroke="#D4E8E6" stroke-width="1"/>
+        <rect x="24" y="380" width="196" height="4" rx="2" fill="#1A6B72"/>
+        <rect x="36" y="394" width="100" height="10" rx="2" fill="#1A6B72" opacity="0.5"/>
+        <rect x="36" y="412" width="160" height="8" rx="2" fill="#8EAEAC" opacity="0.5"/>
+        <rect x="36" y="426" width="140" height="8" rx="2" fill="#8EAEAC" opacity="0.4"/>
+        <text x="36" y="458" font-family="DM Sans,sans-serif" font-size="9.5" fill="#2B9E88">Learn More →</text>
+
+        <rect x="243" y="380" width="196" height="86" rx="4" fill="white" stroke="#D4E8E6" stroke-width="1"/>
+        <rect x="243" y="380" width="196" height="4" rx="2" fill="#2B9E88"/>
+        <rect x="255" y="394" width="120" height="10" rx="2" fill="#2B9E88" opacity="0.5"/>
+        <rect x="255" y="412" width="160" height="8" rx="2" fill="#8EAEAC" opacity="0.5"/>
+        <rect x="255" y="426" width="140" height="8" rx="2" fill="#8EAEAC" opacity="0.4"/>
+        <text x="255" y="458" font-family="DM Sans,sans-serif" font-size="9.5" fill="#2B9E88">Learn More →</text>
+
+        <rect x="462" y="380" width="196" height="86" rx="4" fill="white" stroke="#D4E8E6" stroke-width="1"/>
+        <rect x="462" y="380" width="196" height="4" rx="2" fill="#F4A261"/>
+        <rect x="474" y="394" width="110" height="10" rx="2" fill="#F4A261" opacity="0.6"/>
+        <rect x="474" y="412" width="160" height="8" rx="2" fill="#8EAEAC" opacity="0.5"/>
+        <rect x="474" y="426" width="140" height="8" rx="2" fill="#8EAEAC" opacity="0.4"/>
+        <text x="474" y="458" font-family="DM Sans,sans-serif" font-size="9.5" fill="#2B9E88">Learn More →</text>
+
+        <!-- Annotations -->
+        <line x1="340" y1="52" x2="560" y2="22" stroke="#F4A261" stroke-width="1" stroke-dasharray="3,2"/>
+        <text x="562" y="20" font-family="DM Sans,sans-serif" font-size="8.5" fill="#b5601a">← Primary CTA always visible</text>
+      </svg>
+      <div class="wireframe-caption">Homepage wireframe · Above the fold view · Desktop (1280px)</div>
+    </div>
+
+    <!-- CONTACT / BOOKING WIREFRAME -->
+    <h3 style="margin-top:32px;">Contact &amp; Booking Page</h3>
+    <div class="wireframe-container">
+      <div class="wireframe-bar">
+        <div class="wf-dot red"></div><div class="wf-dot yel"></div><div class="wf-dot grn"></div>
+        <div class="wf-url">www.yourorganization.com/contact</div>
+      </div>
+      <svg viewBox="0 0 682 360" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#fff;">
+
+        <!-- Nav strip -->
+        <rect x="0" y="0" width="682" height="40" fill="#1A6B72"/>
+        <rect x="24" y="10" width="60" height="18" rx="3" fill="rgba(255,255,255,0.2)"/>
+        <text x="54" y="24" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="white">[Logo]</text>
+        <rect x="560" y="8" width="100" height="22" rx="3" fill="#F4A261"/>
+        <text x="610" y="24" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#1C2B2A" font-weight="600">Book Evaluation</text>
+
+        <!-- Page header -->
+        <rect x="0" y="40" width="682" height="60" fill="#E8F5F3"/>
+        <text x="341" y="72" text-anchor="middle" font-family="DM Serif Display,serif" font-size="20" fill="#1A6B72">Get Started — We're Here for You</text>
+        <text x="341" y="90" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#4A6B69">Fill out the form below and our team will be in touch within 24 hours.</text>
+
+        <!-- Left: Form -->
+        <rect x="24" y="118" width="390" height="220" rx="4" fill="white" stroke="#D4E8E6" stroke-width="1"/>
+        <text x="44" y="140" font-family="DM Sans,sans-serif" font-size="11" fill="#1A6B72" font-weight="600">Request an Evaluation</text>
+
+        <!-- Form fields -->
+        <rect x="44" y="150" width="160" height="26" rx="3" fill="#F0FAF8" stroke="#D4E8E6" stroke-width="1"/>
+        <text x="54" y="168" font-family="DM Sans,sans-serif" font-size="9" fill="#8EAEAC">Parent / Guardian Name</text>
+        <rect x="214" y="150" width="180" height="26" rx="3" fill="#F0FAF8" stroke="#D4E8E6" stroke-width="1"/>
+        <text x="224" y="168" font-family="DM Sans,sans-serif" font-size="9" fill="#8EAEAC">Child's Date of Birth</text>
+
+        <rect x="44" y="184" width="350" height="26" rx="3" fill="#F0FAF8" stroke="#D4E8E6" stroke-width="1"/>
+        <text x="54" y="202" font-family="DM Sans,sans-serif" font-size="9" fill="#8EAEAC">Email Address</text>
+        <rect x="44" y="218" width="350" height="26" rx="3" fill="#F0FAF8" stroke="#D4E8E6" stroke-width="1"/>
+        <text x="54" y="236" font-family="DM Sans,sans-serif" font-size="9" fill="#8EAEAC">Phone Number</text>
+
+        <rect x="44" y="252" width="350" height="26" rx="3" fill="#F0FAF8" stroke="#D4E8E6" stroke-width="1"/>
+        <text x="54" y="270" font-family="DM Sans,sans-serif" font-size="9" fill="#8EAEAC">Service Interested In (dropdown)</text>
+
+        <rect x="44" y="286" width="350" height="36" rx="3" fill="#F4A261"/>
+        <text x="219" y="309" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#1C2B2A" font-weight="600">Submit Request →</text>
+
+        <!-- Right: Info -->
+        <rect x="430" y="118" width="228" height="220" rx="4" fill="#E8F5F3"/>
+        <text x="450" y="144" font-family="DM Sans,sans-serif" font-size="11" fill="#1A6B72" font-weight="600">Contact Information</text>
+        <text x="450" y="164" font-family="DM Sans,sans-serif" font-size="9.5" fill="#4A6B69">📞  +1 (555) 000-0000</text>
+        <text x="450" y="182" font-family="DM Sans,sans-serif" font-size="9.5" fill="#4A6B69">✉  hello@organization.com</text>
+        <text x="450" y="200" font-family="DM Sans,sans-serif" font-size="9.5" fill="#4A6B69">📍  123 Therapy Lane, City, ST</text>
+
+        <line x1="450" y1="214" x2="640" y2="214" stroke="#D4E8E6" stroke-width="1"/>
+
+        <!-- Map placeholder -->
+        <rect x="450" y="224" width="190" height="100" rx="3" fill="#D4E8E6"/>
+        <text x="545" y="268" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#4A6B69">📍 Map Widget</text>
+        <text x="545" y="283" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8.5" fill="#8EAEAC">Google Maps embed</text>
+      </svg>
+      <div class="wireframe-caption">Contact / Get Started page wireframe · Desktop view</div>
+    </div>
+
+    <!-- MOBILE HOMEPAGE WIREFRAME -->
+    <h3 style="margin-top:32px;">Mobile Homepage — Hero View</h3>
+    <p style="margin-bottom:16px;">The majority of parents will access this site on their phones. The mobile layout prioritizes the CTA, minimal reading, and one-tap contact.</p>
+    <div style="display:flex; justify-content:center;">
+      <div class="wireframe-container" style="width:260px;">
+        <div class="wireframe-bar" style="padding:6px 10px;">
+          <div class="wf-dot red"></div><div class="wf-dot yel"></div><div class="wf-dot grn"></div>
+          <div class="wf-url" style="font-size:8px;">yourorg.com</div>
+        </div>
+        <svg viewBox="0 0 260 460" xmlns="http://www.w3.org/2000/svg" style="width:100%;display:block;background:#fff;">
+          <!-- Nav mobile -->
+          <rect x="0" y="0" width="260" height="44" fill="#1A6B72"/>
+          <rect x="12" y="12" width="60" height="20" rx="3" fill="rgba(255,255,255,0.25)"/>
+          <text x="42" y="27" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="white">[Logo]</text>
+          <text x="228" y="28" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="18" fill="white">☰</text>
+
+          <!-- Hero image -->
+          <rect x="0" y="44" width="260" height="150" fill="#2B9E88" opacity="0.2"/>
+          <text x="130" y="115" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="10" fill="#4A6B69">Hero Image</text>
+          <text x="130" y="130" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8.5" fill="#8EAEAC">(family photo)</text>
+
+          <!-- Hero copy -->
+          <rect x="12" y="206" width="180" height="16" rx="3" fill="#1A6B72" opacity="0.6"/>
+          <rect x="12" y="230" width="220" height="14" rx="2" fill="#1A6B72" opacity="0.4"/>
+          <rect x="12" y="252" width="200" height="14" rx="2" fill="#8EAEAC" opacity="0.4"/>
+          <rect x="12" y="270" width="180" height="14" rx="2" fill="#8EAEAC" opacity="0.35"/>
+
+          <!-- CTA button full width -->
+          <rect x="12" y="298" width="236" height="40" rx="4" fill="#F4A261"/>
+          <text x="130" y="323" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="12" fill="#1C2B2A" font-weight="600">Book an Evaluation</text>
+          <rect x="12" y="346" width="236" height="36" rx="4" fill="none" stroke="#1A6B72" stroke-width="1.5"/>
+          <text x="130" y="369" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#1A6B72">Our Services</text>
+
+          <!-- Trust bar -->
+          <rect x="0" y="396" width="260" height="36" fill="#E8F5F3"/>
+          <text x="130" y="418" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#1A6B72" font-weight="500">✓ Evidence-Based  ✓ Licensed  ✓ Caring</text>
+
+          <!-- Quick contact -->
+          <text x="130" y="448" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="9" fill="#2B9E88">📞 Call us: (555) 000-0000</text>
+        </svg>
+        <div class="wireframe-caption">Mobile homepage · 390px · iPhone-sized</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       08 · USER JOURNEY
+  ══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">12</span>
+      <h2 class="section-title">User Journey</h2>
+    </div>
+    <p class="lead">Understanding how a parent moves through the website allows us to design for the right moments — reducing drop-off and building confidence at every step.</p>
+
+    <div class="journey">
+      <div class="journey-step">
+        <div class="journey-circle">🔍</div>
+        <div class="journey-label">Search</div>
+        <div class="journey-sub">Googles "autism therapy near me"</div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">🏠</div>
+        <div class="journey-label">Discover</div>
+        <div class="journey-sub">Lands on homepage</div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">💡</div>
+        <div class="journey-label">Understand</div>
+        <div class="journey-sub">Reads services & approach</div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">⭐</div>
+        <div class="journey-label">Trust</div>
+        <div class="journey-sub">Reads testimonials</div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">📅</div>
+        <div class="journey-label">Connect</div>
+        <div class="journey-sub">Books evaluation</div>
+      </div>
+      <div class="journey-step">
+        <div class="journey-circle">❤️</div>
+        <div class="journey-label">Begin</div>
+        <div class="journey-sub">Family's journey starts</div>
+      </div>
+    </div>
+
+    <div class="callout">
+      <p>The website's job is to move every parent from <strong>Search</strong> to <strong>Begin</strong> as smoothly as possible — removing doubt, answering questions, and making the first step feel achievable.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       09 · KEY FEATURES
+  ══════════════════════════════════ -->
+  <div class="section section-alt">
+    <div class="section-header">
+      <span class="section-num">13</span>
+      <h2 class="section-title">Key Features &amp; Functionality</h2>
+    </div>
+    <div class="card-row cols-2">
+      <div class="card">
+        <h4>📱 Mobile-First Responsive Design</h4>
+        <p>Built to look and perform perfectly on all screen sizes — from mobile phones to large desktop monitors.</p>
+      </div>
+      <div class="card">
+        <h4>📋 Online Appointment / Inquiry Form</h4>
+        <p>A clean, simple form that captures family information and routes inquiries to the right team member.</p>
+      </div>
+      <div class="card">
+        <h4>🔍 SEO Optimization</h4>
+        <p>Structured content, semantic HTML, fast loading, and targeted keywords so families can find the organization through Google searches.</p>
+      </div>
+      <div class="card">
+        <h4>⚡ Performance &amp; Speed</h4>
+        <p>Optimized images, clean code, and fast hosting ensure the site loads quickly — a critical factor for both users and search rankings.</p>
+      </div>
+      <div class="card">
+        <h4>✍️ Content Management System (CMS)</h4>
+        <p>The team can update text, images, and blog posts themselves without needing a developer — ensuring content stays fresh.</p>
+      </div>
+      <div class="card">
+        <h4>♿ Accessibility (WCAG 2.1)</h4>
+        <p>Color contrast, keyboard navigation, screen reader compatibility, and readable fonts ensure the site is usable by all visitors.</p>
+      </div>
+    </div>
+
+    <h3>Future Phase Features</h3>
+    <div class="pill-list">
+      <span class="pill">Parent Resource Hub / Blog</span>
+      <span class="pill">Secure Parent Portal</span>
+      <span class="pill">Live Chat Support</span>
+      <span class="pill">Insurance Verification Tool</span>
+      <span class="pill">Newsletter Integration</span>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       10 · SUCCESS METRICS
+  ══════════════════════════════════ -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-num">14</span>
+      <h2 class="section-title">Success Metrics</h2>
+    </div>
+    <p class="lead">We will define success not by aesthetics alone, but by measurable outcomes that reflect real-world impact on the organization's growth and clinical mission.</p>
+
+    <h3>A. User Engagement &amp; Traffic Metrics</h3>
+    <div class="metrics-row">
+      <div class="metric-box">
+        <div class="metric-icon">📩</div>
+        <div class="metric-label">Inquiry Volume</div>
+        <div class="metric-desc">Target: 40% increase in form submissions &amp; calls within 6 months</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-icon">⏱️</div>
+        <div class="metric-label">Session Duration</div>
+        <div class="metric-desc">Target: 2+ min avg. (parents reading &amp; engaging with content)</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-icon">↩️</div>
+        <div class="metric-label">Bounce Rate</div>
+        <div class="metric-desc">Target: &lt;45% (lower = more relevant, engaging content)</div>
+      </div>
+      <div class="metric-box">
+        <div class="metric-icon">📈</div>
+        <div class="metric-label">Organic Traffic</div>
+        <div class="metric-desc">Target: 60% increase in Google search visibility within 12 months</div>
+      </div>
+    </div>
+
+    <h3>B. Business Impact &amp; Conversion Metrics</h3>
+    <ul class="blist">
+      <li><strong>Inquiry-to-Booking Conversion Rate</strong> — Target: 60%+ of inquiries convert to scheduled evaluations (currently ???)</li>
+      <li><strong>Cost Per Inquiry (CPI)</strong> — Track organic CPI vs. paid ads to optimize marketing spend</li>
+      <li><strong>Time-to-Contact</strong> — Average time from inquiry to first staff contact. Target: within 24 hours (measure responsiveness)</li>
+      <li><strong>No-Show Rate</strong> — Track if FAQ/Intake page reduces missed appointments. Target: &lt;15% no-show rate</li>
+      <li><strong>Client Onboarding Time</strong> — Days from initial inquiry to therapy start. Reduce friction with clear intake process</li>
+    </ul>
+
+    <h3>C. Clinical Outcomes &amp; Mission Impact</h3>
+    <p>Beyond web metrics, the website should support the organization's clinical mission:</p>
+    <ul class="blist">
+      <li><strong>Families Served (New Clients)</strong> — Track year-over-year growth in new families served. Website should be a major driver of growth.</li>
+      <li><strong>Client Retention Rate</strong> — Families who continue therapy beyond 6 months. A good website builds trust and reduces early drop-off.</li>
+      <li><strong>Treatment Plan Adherence</strong> — % of families completing prescribed therapy hours. Clear communication on website + resources reduces barriers.</li>
+      <li><strong>Clinical Outcome Improvement Rates</strong> — % of clients achieving measurable goals (IEP objectives, functional skills gains). Website's Resources section + staff transparency support this.</li>
+      <li><strong>Parent Satisfaction &amp; NPS</strong> — Net Promoter Score for families. A clear, empathetic website sets positive expectations.</li>
+    </ul>
+
+    <div class="callout">
+      <p><strong>Strategic Insight:</strong> Business metrics alone miss the point. The website's true success is measured by how many families find clarity, book an evaluation, start therapy, and see their child thrive.</p>
+    </div>
+
+    <h3>D. Recommended Analytics Setup</h3>
+    <ul class="blist">
+      <li><strong>Google Analytics 4</strong> — Set up from day one. Track traffic sources, user behavior, goal completions (bookings, form submissions)</li>
+      <li><strong>Google Search Console</strong> — Monitor keyword performance and search impression data</li>
+      <li><strong>Conversion Tracking</strong> — Tag form submissions, phone calls, and booking events as conversions</li>
+      <li><strong>Heatmap Tool (Hotjar, Crazy Egg)</strong> — Understand where users click, scroll, and drop off. Identify friction points.</li>
+      <li><strong>Form Analytics</strong> — Track which form fields cause abandonment; optimize intake forms regularly</li>
+      <li><strong>Monthly Reporting Dashboard</strong> — Create a simple dashboard for leadership to track key metrics (inquiries, bookings, organic traffic, cost per inquiry)</li>
+    </ul>
+
+    <div class="callout-amber callout">
+      <p><strong>Post-Launch Cadence:</strong> Review analytics monthly for the first 90 days, then quarterly. Adjust site content, CTAs, and user paths based on real user behavior data.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       15 · TIMELINE
+  ══════════════════════════════════ -->
+  <div class="section section-alt">
+    <div class="section-header">
+      <span class="section-num">15</span>
+      <h2 class="section-title">Project Timeline &amp; Deliverables</h2>
+    </div>
+    <p class="lead">The following timeline reflects a standard website project with four clearly defined phases. Exact durations will be confirmed during kickoff.</p>
+
+    <div class="card-row cols-2" style="align-items:start;">
+      <div>
+        <h3>Estimated Timeline</h3>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-phase">Phase 1 — Weeks 1–2</div>
+            <div class="tl-title">Discovery &amp; Research</div>
+            <div class="tl-desc">Organization deep-dive, stakeholder interviews, competitor review, user research, and content inventory.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-phase">Phase 2 — Weeks 3–5</div>
+            <div class="tl-title">Design</div>
+            <div class="tl-desc">Wireframes, brand application, UI/UX design for all key pages, design system documentation, and client review rounds.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-phase">Phase 3 — Weeks 6–10</div>
+            <div class="tl-title">Development</div>
+            <div class="tl-desc">Full responsive build, CMS setup, form integration, SEO foundations, performance optimization, and content population.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-phase">Phase 4 — Weeks 11–12</div>
+            <div class="tl-title">Testing &amp; Launch</div>
+            <div class="tl-desc">Cross-browser QA, accessibility audit, speed testing, team training, and coordinated go-live.</div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h3>Core Deliverables</h3>
+        <ul class="blist">
+          <li>Website UI/UX design (all key pages including new Pricing, FAQ, Accessibility pages)</li>
+          <li>Fully developed, responsive, mobile-first website</li>
+          <li>HIPAA-compliant hosting &amp; data security architecture</li>
+          <li>CMS integration with team training &amp; documentation</li>
+          <li>Contact &amp; inquiry form setup with encryption</li>
+          <li>Online appointment booking system or integration (Calendly, Acuity, etc.)</li>
+          <li>Basic SEO configuration &amp; structured data markup</li>
+          <li>Google Analytics 4 &amp; Search Console setup</li>
+          <li>Content structure &amp; copywriting guidance</li>
+        </ul>
+
+        <h3>Legal &amp; Compliance Deliverables</h3>
+        <ul class="blist">
+          <li>Privacy Policy (HIPAA-compliant, family-friendly language)</li>
+          <li>Terms of Service</li>
+          <li>HIPAA Notice of Privacy Practices (NPP)</li>
+          <li>Data Retention &amp; Breach Response Policy documentation</li>
+          <li>Consent form templates (for testimonials, photos, family stories)</li>
+          <li>Business Associate Agreements (BAA) checklists for third-party tools</li>
+          <li>WCAG 2.1 AA accessibility audit report</li>
+        </ul>
+
+        <h3>Content Governance &amp; Training</h3>
+        <ul class="blist">
+          <li><strong>Content Approval Workflow</strong> — Define who approves clinical content (clinicians), marketing content (leadership), and blog posts</li>
+          <li><strong>Staff Credential Update Process</strong> — Annual verification checklist; process for updating staff bios when licenses renew</li>
+          <li><strong>CMS Training Documentation</strong> — Step-by-step guides for updating text, images, testimonials, and blog posts</li>
+          <li><strong>Brand Guidelines Handbook</strong> — Tone, voice, and visual standards for maintaining consistency</li>
+          <li><strong>Analytics Dashboard Setup</strong> — Monthly metrics review process &amp; reporting cadence</li>
+        </ul>
+
+        <h3>Post-Launch Support (90+ Days)</h3>
+        <ul class="blist">
+          <li><strong>Phase 1 (Weeks 1–4 post-launch):</strong> Daily monitoring, bug fixes, performance optimization, user feedback collection</li>
+          <li><strong>Phase 2 (Weeks 5–12 post-launch):</strong> Weekly check-ins, content updates, analytics review, A/B testing on CTAs and messaging</li>
+          <li><strong>Ongoing Support (Optional):</strong> Monthly maintenance retainer for continuous optimization, security updates, and new feature additions</li>
+          <li><strong>Training Sessions:</strong> Quarterly team refresher trainings on CMS, content updates, analytics interpretation</li>
+        </ul>
+
+        <div class="callout" style="margin-top:20px;">
+          <p><strong>Total Estimated Duration:</strong> 12–14 weeks from project kickoff to public launch (including HIPAA compliance and legal review).</p>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:24px;">Assumptions &amp; Next Steps</h3>
+    <div class="card-row cols-2">
+      <div class="card">
+        <h4>Organization Responsibilities</h4>
+        <ul style="font-size:12.5px; margin:0;">
+          <li>Provide staff photos, credentials, bios</li>
+          <li>Supply family testimonials &amp; consent releases</li>
+          <li>Confirm accepted insurance carriers &amp; pricing</li>
+          <li>Approve clinical copy &amp; messaging</li>
+          <li>Designate content owner for ongoing updates</li>
+        </ul>
+      </div>
+      <div class="card">
+        <h4>Project Success Criteria</h4>
+        <ul style="font-size:12.5px; margin:0;">
+          <li>✓ Website launches on-time and on-budget</li>
+          <li>✓ All pages meet WCAG 2.1 AA accessibility standards</li>
+          <li>✓ Forms are HIPAA-compliant &amp; secured</li>
+          <li>✓ Inquiry volume increases by 30%+ within 90 days</li>
+          <li>✓ Staff trained &amp; confident managing content</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════
+       CLOSING
+  ══════════════════════════════════ -->
+  <div class="closing">
+    <div class="closing-blob1"></div>
+    <div class="closing-blob2"></div>
+    <h2>This website is a <em>Digital Front Door</em> — welcoming every family.</h2>
+    <p>Every design choice, every word, every interaction is built to help children with autism spectrum disorder reach their full potential — one family at a time. With transparent pricing, clear processes, trusted credentials, and genuine empathy, we transform anxious families into engaged partners in their child's growth journey.</p>
+    <div class="closing-cta">Let's Build Something That Matters</div>
+  </div>
+
+  <div class="doc-footer">
+    <span><strong>ABA Therapy Organization</strong> · Website Project Proposal</span>
+    <span>Confidential &amp; For Review Purposes</span>
+    <span>Version 2.0 · Enhanced with Security, Compliance &amp; Governance</span>
+  </div>
+
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Define elements to animate on scroll
+    const animationTargets = [
+      { selector: '.section-header', class: 'sr-left' },
+      { selector: '.card', class: 'sr' },
+      { selector: '.card-dark', class: 'sr' },
+      { selector: '.callout', class: 'sr' },
+      { selector: '.tl-item', class: 'sr' },
+      { selector: '.metric-box', class: 'sr' },
+      { selector: '.journey-step', class: 'sr' },
+      { selector: '.toc-item', class: 'sr' },
+      { selector: '.wireframe-container', class: 'sr-scale' },
+      { selector: '.sitemap-wrap', class: 'sr-scale' },
+      { selector: '.type-specimen', class: 'sr-scale' },
+      { selector: '.pill-list', class: 'sr' },
+      { selector: '.tone-pair', class: 'sr' },
+      { selector: '.swatch-row', class: 'sr' },
+      { selector: 'h3', class: 'sr' },
+    ];
+
+    const elementsToObserve = [];
+
+    // Add animation classes to elements
+    animationTargets.forEach(({ selector, class: animClass }) => {
+      document.querySelectorAll(selector).forEach((el, index) => {
+        el.classList.add(animClass);
+        // Add stagger delay for siblings (max 5 items)
+        if (index > 0 && index <= 4) {
+          el.classList.add(`sr-d${index}`);
+        }
+        elementsToObserve.push(el);
+      });
+    });
+
+    // IntersectionObserver for scroll reveal
+    const observerOptions = {
+      threshold: 0.12,
+      rootMargin: '0px 0px -40px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    elementsToObserve.forEach(el => observer.observe(el));
+
+    // Timeline dot pop animation
+    document.querySelectorAll('.tl-dot').forEach((dot, index) => {
+      dot.style.animation = `dotPop .4s ease both ${index * 0.1 + 0.2}s`;
+    });
+  });
+</script>
+</body>
+</html>
